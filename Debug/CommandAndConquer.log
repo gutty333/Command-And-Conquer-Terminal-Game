@@ -1,14 +1,15 @@
 ﻿  Player.cpp
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(69): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(78): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(159): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(163): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(266): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(298): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(315): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(381): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(385): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(405): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(467): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(482): warning C4018: '<': signed/unsigned mismatch
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(77): warning C4018: '<': signed/unsigned mismatch
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(86): warning C4018: '<': signed/unsigned mismatch
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(144): warning C4018: '<': signed/unsigned mismatch
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(180): warning C4018: '<': signed/unsigned mismatch
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(184): warning C4018: '<': signed/unsigned mismatch
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(287): warning C4018: '<': signed/unsigned mismatch
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(319): warning C4018: '<': signed/unsigned mismatch
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(336): warning C4018: '<': signed/unsigned mismatch
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(410): warning C4018: '<': signed/unsigned mismatch
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(414): warning C4018: '<': signed/unsigned mismatch
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(434): warning C4018: '<': signed/unsigned mismatch
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(496): warning C4018: '<': signed/unsigned mismatch
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(511): warning C4018: '<': signed/unsigned mismatch
   CommandAndConquer.vcxproj -> c:\users\carlo\documents\visual studio 2015\Projects\CommandAndConquer\Debug\CommandAndConquer.exe

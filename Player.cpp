@@ -62,6 +62,14 @@ bool Player::getAlive()
 {
 	return alive;
 }
+int Player::getTotalBuildings()
+{
+	return buildings.size();
+}
+int Player::getTotalUnits()
+{
+	return units.size();
+}
 
 // Print Building Method
 void Player::printBuildings()
@@ -130,8 +138,21 @@ void Player::sellBuilding(int index)
 	}
 	else
 	{
-		// Update the power only if that building was online
-		if (buildings[index]->getOnline())
+		bool found = false;
+
+		// Check if that building is in offline mode
+		for (int x = 0; x < offlineBuildings.size(); x++)
+		{
+			if (buildings[index] == offlineBuildings[x])
+			{
+				found = true;
+			}
+		}
+
+		// Update the power only if that building was online or was in offline mode
+		// Offline mode is any building automatically power down due to low power
+		// This does not include buildings power down manually
+		if (buildings[index]->getOnline() || found)
 		{
 			int newPower = getRequiredPower() - buildings[index]->getPower()*-1;
 			setRequiredPower(newPower);
@@ -341,7 +362,16 @@ void Player::managePower(int index)
 			int newPower = getRequiredPower() - buildings[index]->getPower()*-1;
 			setRequiredPower(newPower);
 		}
-		else if (!buildings[index]->getOnline() && getCurrentPower() > getRequiredPower())
+		else if (!buildings[index]->getOnline() && !buildings[index]->getSupportStructure())
+		{
+			cout << "\tThe " << buildings[index]->getName() << " will be turned on" << endl;
+			buildings[index]->setOnline(true);
+
+			// Update our power
+			int newPower = getRequiredPower() + buildings[index]->getPower()*-1;
+			setRequiredPower(newPower);
+		}
+		else if (!buildings[index]->getOnline() && buildings[index]->getSupportStructure() && getCurrentPower() > getRequiredPower())
 		{
 			cout << "\tThe " << buildings[index]->getName() << " will be turned on" << endl;
 			buildings[index]->setOnline(true);
@@ -355,7 +385,6 @@ void Player::managePower(int index)
 			cout << "\tUnable to turn on the " << buildings[index]->getName() << endl;
 			cout << "\tYou do not have enough power to support that structure" << endl;
 		}
-
 	}
 }
 

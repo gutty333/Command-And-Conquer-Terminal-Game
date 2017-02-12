@@ -27,6 +27,8 @@ class Player
 		int getCurrentPower();
 		int getRequiredPower();
 		bool getAlive();
+		int getTotalBuildings();
+		int getTotalUnits();
 
 		void sellBuilding(int);
 		void buildBuilding(Building*);

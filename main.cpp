@@ -107,7 +107,7 @@ int main()
 				cout << "\tCurrent Power: " << player.getCurrentPower() << endl;
 				cout << "\tRequired Power: " << player.getRequiredPower() << endl;
 
-				cout << endl << line << endl << "\tBuildings" << endl;
+				cout << endl << line << endl << "\tYou have a total of " << player.getTotalBuildings() << " Buildings" << endl;
 				player.printBuildings();
 
 				cout << endl << line << endl << "\tUnits" << endl;
@@ -242,15 +242,22 @@ int main()
 			}
 			case 7:
 			{
-				cout << "\tWhich unit do you want to destroy?" << endl;
-				player.printUnitList();
-				cin >> select;
-				cout << "\tHow many do you want to destroy?" << endl;
-				int destroyTotal;
-				cin >> destroyTotal;
+				if (player.getTotalUnits() > 0)
+				{
+					cout << "\tWhich unit do you want to destroy?" << endl;
+					player.printUnitList();
+					cin >> select;
+					cout << "\tHow many do you want to destroy?" << endl;
+					int destroyTotal;
+					cin >> destroyTotal;
 
-				player.destroyUnit(select, destroyTotal);
-
+					player.destroyUnit(select, destroyTotal);
+				}
+				else
+				{
+					cout << "\tYou do not have any units" << endl;
+				}
+				
 				break;
 			}
 		}
