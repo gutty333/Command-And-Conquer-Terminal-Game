@@ -3,7 +3,7 @@ Text Game based on the EA game Command and Conquer 3.  First version. This repli
 
 
 To do list:
-\n4.Allow the MCV to be either unpacked or stay mobile.
+4.Allow the MCV to be either unpacked or stay mobile.
 5.Allow the player to buy upgrades
 6.Allow for units and buildings to receive their upgrades
 7.Rebalance harvesting and repair tool
