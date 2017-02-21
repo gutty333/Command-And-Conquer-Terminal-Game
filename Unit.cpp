@@ -17,6 +17,7 @@
 
 #include "Orca.h"
 #include "Firehawk.h"
+#include "HammerHead.h"
 
 // List of unit types
 const string unitTypes[] = { "Infantry","Vehicle","Air" };
@@ -28,13 +29,14 @@ const string GDI_INFANTRY[] = { "Rifleman Squad", "Missile Squad", "Engineer", "
 // GDI Vehicle Units
 const string GDI_VEHICLE[] = { "CC-6 Pitbull", "Guardian APC","MBT-6 Predator", "Harvester", "Mobile Construction Vehicle", "Rig", "Juggernaut MK. III", "Mammoth MK. III" };
 // GDI Air Units
-const string GDI_AIR[] = { "A-15 Orca", "Firehawk" };
+const string GDI_AIR[] = { "A-15 Orca", "Firehawk", "Hammerhead" };
 
 // Constructor
 Unit::Unit()
 {
 	name = description = type = "";
 	hitPoint = cost = total = 0;
+	specialAirUnit = false;
 }
 
 // Setter Method
@@ -79,6 +81,10 @@ vector <string> Unit::getRequirements()
 vector <string> Unit::getCombatAccess()
 {
 	return combatAccess;
+}
+bool Unit::getAirUnit()
+{
+	return specialAirUnit;
 }
 
 // Info Method
@@ -220,6 +226,7 @@ Harvester::Harvester()
 	description = "Resource gatherer";
 	cost = 1500;
 	hitPoint = 5000;
+	requirements.push_back(GDI[4]);
 }
 Mcv::Mcv()
 {
@@ -277,6 +284,7 @@ Orca::Orca()
 	description = "Gunship";
 	cost = 1100;
 	hitPoint = 1800;
+	specialAirUnit = true;
 	requirements.push_back(GDI[6]);
 	combatAccess.push_back(unitTypes[0]);
 	combatAccess.push_back(unitTypes[1]);
@@ -288,9 +296,21 @@ Firehawk::Firehawk()
 	description = "Fighter bomber";
 	cost = 1500;
 	hitPoint = 2625;
+	specialAirUnit = true;
 	requirements.push_back(GDI[6]);
 	requirements.push_back(GDI[8]);
 	combatAccess.push_back(unitTypes[0]);
 	combatAccess.push_back(unitTypes[1]);
 	combatAccess.push_back(unitTypes[2]);
+}
+HammerHead::HammerHead()
+{
+	name = GDI_AIR[2];
+	type = unitTypes[2];
+	description = "Transport gunship";
+	cost = 1500;
+	hitPoint = 2500;
+	requirements.push_back(GDI[6]);
+	combatAccess.push_back(unitTypes[0]);
+	combatAccess.push_back(unitTypes[1]);
 }

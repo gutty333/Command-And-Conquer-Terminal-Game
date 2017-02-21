@@ -17,6 +17,7 @@ class Unit
 		int total;
 		vector <string> requirements;
 		vector <string> combatAccess;
+		bool specialAirUnit;
 
 	public:
 		Unit();
@@ -30,6 +31,7 @@ class Unit
 		int getHitPoint();
 		int getCost();
 		int getTotal();
+		bool getAirUnit();
 		vector <string> getRequirements();
 		vector <string> getCombatAccess();
 		void printInfo();

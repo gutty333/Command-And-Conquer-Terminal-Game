@@ -1,15 +1,4 @@
-﻿  Player.cpp
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(77): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(86): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(144): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(180): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(184): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(287): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(319): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(336): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(410): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(414): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(434): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(496): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\player.cpp(511): warning C4018: '<': signed/unsigned mismatch
-  CommandAndConquer.vcxproj -> c:\users\carlo\documents\visual studio 2015\Projects\CommandAndConquer\Debug\CommandAndConquer.exe
+﻿  main.cpp
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\main.cpp(58): warning C4101: 'structure': unreferenced local variable
+c:\users\carlo\documents\visual studio 2015\projects\commandandconquer\commandandconquer\main.cpp(59): warning C4101: 'unit': unreferenced local variable
+  CommandAndConquer.vcxproj -> C:\Users\carlo\Documents\Visual Studio 2015\Projects\CommandAndConquer\Debug\CommandAndConquer.exe

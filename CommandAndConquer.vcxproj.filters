@@ -116,5 +116,8 @@
     <ClInclude Include="Firehawk.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HammerHead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

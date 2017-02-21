@@ -19,6 +19,7 @@ class Building
 		vector <string> requirements;
 		bool online;
 		bool supportStructure;
+		bool airField;
 
 	public:
 		Building();
@@ -34,7 +35,10 @@ class Building
 		bool getOnline();
 		bool getSupportStructure();
 		vector <string> getRequirements();
-		void printInfo();
+		virtual void printInfo();
+
+		virtual void addAirUnit() {};
+		virtual bool airFieldSpace() { return false;};
 };
 
 #endif

@@ -20,6 +20,7 @@ Building::Building()
 	power = hitPoint = cost = hitPointFull = 0;
 	online = true;
 	supportStructure = false;
+	airField = false;
 }
 
 // Setter Method
@@ -142,6 +143,8 @@ AirField::AirField()
 	power = -8;
 	hitPoint = hitPointFull = 4000;
 	cost = 1000;
+	airField = true;
+	totalAirUnits = 0;
 
 	requirements.push_back(GDI[0]);
 	requirements.push_back(GDI[5]);
@@ -179,4 +182,24 @@ CommandLink::CommandLink()
 
 	requirements.push_back(GDI[0]);
 	requirements.push_back(GDI[8]);
+}
+
+
+// Air field child methods
+void AirField::addAirUnit()
+{
+	totalAirUnits++;
+}
+bool AirField::airFieldSpace()
+{
+	return totalAirUnits < 4;
+}
+void AirField::printInfo()
+{
+	cout << "\tName: " << name << endl;
+	cout << "\tPower: " << power << endl;
+	cout << "\tCost: " << cost << endl;
+	cout << "\tHit points: " << hitPoint << "/" << hitPointFull << endl;
+	cout << "\tSpace: " << totalAirUnits << "/" << 4 << endl;
+	cout << (online ? "\tBuilding is online" : "\tBuilding is offline") << endl;
 }

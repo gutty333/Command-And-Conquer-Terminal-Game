@@ -36,6 +36,7 @@
     <ClInclude Include="Engineer.h" />
     <ClInclude Include="Firehawk.h" />
     <ClInclude Include="Grenadier.h" />
+    <ClInclude Include="HammerHead.h" />
     <ClInclude Include="Harvester.h" />
     <ClInclude Include="Juggernaut.h" />
     <ClInclude Include="MammothTank.h" />

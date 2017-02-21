@@ -32,7 +32,7 @@ class Player
 
 		void sellBuilding(int);
 		void buildBuilding(Building*);
-		void buildUnit(Unit*, int);
+		void buildUnit(Unit*);
 		void destroyUnit(int, int);
 		bool needsRepair(int);
 		void repairBuilding(int);

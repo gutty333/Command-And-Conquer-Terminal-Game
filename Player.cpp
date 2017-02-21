@@ -221,12 +221,28 @@ void Player::buildBuilding(Building* A)
 			// In the case we build a refinery the player gains a harvester
 			if (A->getName() == GDI[2])
 			{
-				Unit* newUnit = new Harvester;
+				Unit* harvester = new Harvester;
 
-				// Since the buildUnit method will charge for the unit
-				// We add the unit cost here to our resources
-				resources += newUnit->getCost();
-				buildUnit(newUnit, 1);
+				// Placeholder
+				// Linear search to check if we already have this unit in our list
+				bool found = false;
+				int index = 0;
+				for (index; index < units.size(); index++)
+				{
+					if (harvester->getName() == units[index]->getName())
+					{
+						found = true;
+						break;
+					}
+				}
+
+				if (!found)
+				{
+					units.push_back(harvester);
+				}
+
+				int currentTotal = units[index]->getTotal() + 1;
+				units[index]->setTotal(currentTotal);
 			}
 		}
 
@@ -281,13 +297,13 @@ void Player::repairBuilding(int index)
 // The player most have an engineer available
 void Player::repairBuilding2(int index)
 {
-	cout << "\tUsing an engineer" << endl;
 
 	// Check if we have engineer available
 	for (int x = 0; x < units.size(); x++)
 	{
 		if (units[x]->getName() == "Engineer")
 		{
+			cout << "\tUsing an engineer" << endl;
 			// We will need to destroy our current engineer
 			destroyUnit(x, 1);
 
@@ -403,7 +419,7 @@ void Player::checkAlive()
 // Build Units Method
 // Similar to buildings it will allow the player to train units depending on the structures they have
 // As a placeholder for now, units will not have their own instance
-void Player::buildUnit(Unit* unit, int size)
+void Player::buildUnit(Unit* unit)
 {
 	// Checking if we have the required structures to build this unit
 	vector <string> requirements = unit->getRequirements();
@@ -440,23 +456,56 @@ void Player::buildUnit(Unit* unit, int size)
 		}
 	}
 	
+	cout << "\tHow many do you want to train?" << endl;
+	int size;
+	cin >> size;
 	// Analyze if we have enough resources to build the unit
 	for (int x = 0; x < size; x++)
 	{
 		if (unit->getCost() <= resources)
 		{
-			cout << "\tTrainning: " << unit->getName() << " ready for combat" << endl;
-			resources -= unit->getCost();
+			bool airUnitCheck = false;
+			bool regularUnit = false;
 
-			if (!found)
+			// Condition in the case we are training air units that have a limit based on the number of airfields we have
+			// For example each airfield can only allow 4 air units to be trained
+			if (unit->getAirUnit())
 			{
-				units.push_back(unit);
-				found = true;
+				for (int y = 0; y < buildings.size(); y++)
+				{
+					if (buildings[y]->getName() == GDI[6] && buildings[y]->airFieldSpace())
+					{
+						buildings[y]->addAirUnit();
+						airUnitCheck = true;
+					}
+
+				}
+			}
+			else
+			{
+				regularUnit = true;
 			}
 
-			int currentTotal = units[index]->getTotal() + 1;
-			units[index]->setTotal(currentTotal);
-			
+			if (airUnitCheck || regularUnit)
+			{
+				cout << "\tTrainning: " << unit->getName() << " ready for combat" << endl;
+				resources -= unit->getCost();
+
+				if (!found)
+				{
+					units.push_back(unit);
+					found = true;
+				}
+
+				int currentTotal = units[index]->getTotal() + 1;
+				units[index]->setTotal(currentTotal);
+			}
+			else
+			{
+				cout << "\tUnable to train the other " << size - x << " " << unit->getName() << "/s" << endl;
+				cout << "\tYou must build another airfield. An airfield only supports 4" << endl;
+				break;
+			}
 		}
 		else
 		{

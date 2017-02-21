@@ -34,6 +34,7 @@
 
 #include "Orca.h"
 #include "Firehawk.h"
+#include "HammerHead.h"
 
 using namespace std;
 
@@ -49,7 +50,7 @@ const string GDI_INFANTRY[] = { "Rifleman Squad", "Missile Squad", "Engineer", "
 // GDI Vehicle Units
 const string GDI_VEHICLE[] = { "CC-6 Pitbull", "Guardian APC","MBT-6 Predator", "Harvester", "Mobile Construction Vehicle", "Rig", "Juggernaut MK. III", "Mammoth MK. III" };
 // GDI Air Units
-const string GDI_AIR[] = { "A-15 Orca", "Firehawk" };
+const string GDI_AIR[] = { "A-15 Orca", "Firehawk" , "Hammerhead"};
 
 int main()
 {
@@ -71,7 +72,7 @@ int main()
 		Building* list[] = { new PowerPlant, new Refinery, new Barracks, new WarFactory, new CommandPost, new AirField, new Armory, new TechCenter, new CommandLink };
 		Unit* infantry[] = { new Rifleman, new MissileSquad, new Engineer, new Grenadier, new SniperTeam, new ZoneTrooper };
 		Unit* vehicle[] = { new Apc, new Pitbull, new Predator, new Harvester, new Mcv, new Rig, new Juggernaut, new MammothTank };
-		Unit* air[] = { new Orca, new Firehawk };
+		Unit* air[] = { new Orca, new Firehawk , new HammerHead};
 		// Player command menu
 		cout << endl << endl << "Action Menu (Please select an action by entering corresponding number)" << endl;
 		cout << line << endl;
@@ -88,7 +89,7 @@ int main()
 		// User input validation
 		while (choice < 1 || choice > 8)
 		{
-			cout << "Please enter a valid choice number (1-7)" << endl;
+			cout << "Please enter a valid choice number (1-8)" << endl;
 			cin >> choice;
 		}
 
@@ -122,39 +123,52 @@ int main()
 				{
 					cout << "\t" << x << ". " << GDI[x] << endl;
 				}
+				cout << "\t-1. Go Back" << endl;
 				cin >> select;
 
-				player.buildBuilding(list[select]);
-				player.checkPower();
+				if (select != -1)
+				{
+					player.buildBuilding(list[select]);
+					player.checkPower();
+				}
 				break;
 			}
 			case 3: // Sell Building
 			{
 				cout << endl << line << endl << "\tWhich structure do you want to sell?" << endl;
 				player.printBuildingList();
+				cout << "\t-1. Go Back" << endl;
 				cin >> select;
 
-				player.sellBuilding(select);
-				player.checkPower();
+				if (select != -1)
+				{
+					player.sellBuilding(select);
+					player.checkPower();
+				}
 				break;
 			}
 			case 4: // Power Manage
 			{
 				cout << endl << line << endl << "\tWhich structure do you want to power manage?" << endl;
 				player.printBuildingList();
+				cout << "\t-1. Go Back" << endl;
 				cin >> select;
 
-				player.managePower(select);
-				player.checkPower();
+				if (select != -1)
+				{
+					player.managePower(select);
+					player.checkPower();
+				}
 				break;
 			}
-			case 5: 
+			case 5: // Repair Buildings
 			{
 				cout << endl << line << endl << "\tWhich structure do you want to repair?" << endl;
 				player.printBuildingList();
+				cout << "\t-1. Go Back" << endl;
 				cin >> select;
 
-				if (player.needsRepair(select))
+				if (select != -1 && player.needsRepair(select))
 				{
 					// Menu to decide how we will repair our structure
 					cout << "\tWhat do you want to use to repair the structure?" << endl;
@@ -180,17 +194,19 @@ int main()
 				
 				break;
 			}
-			case 6:
+			case 6: // Buy Units
 			{
-				cout << endl << line << endl << "\tWhich unit type do you want to buy?" << endl;
-				for (int x = 0; x < 3; x++)
-				{
-					cout << "\t" << x + 1 << " " << unitTypes[x] << endl;
-				}
-				int unitChoice;
-				cin >> unitChoice;
+				Selection:
+					cout << endl << line << endl << "\tWhich unit type do you want to buy?" << endl;
+					for (int x = 0; x < 3; x++)
+					{
+						cout << "\t" << x + 1 << " " << unitTypes[x] << endl;
+					}
+					cout << "\t-1. Go Back" << endl;
+					cin >> select;
+					int unitChoice;
 
-				switch (unitChoice)
+				switch (select)
 				{
 					case 1:
 					{
@@ -199,12 +215,17 @@ int main()
 						{
 							cout << "\t" << x << ". " << GDI_INFANTRY[x] << endl;
 						}
+						cout << "\t-1. Go Back" << endl;
 						cin >> unitChoice;
-						cout << "\tHow many do you want to train?" << endl;
-						int size;
-						cin >> size;
 
-						player.buildUnit(infantry[unitChoice], size);
+						if (unitChoice == -1)
+						{
+							goto Selection;
+						}
+						else
+						{
+							player.buildUnit(infantry[unitChoice]);
+						}
 						break;
 					}
 					case 2:
@@ -214,44 +235,59 @@ int main()
 						{
 							cout << "\t" << x << ". " << GDI_VEHICLE[x] << endl;
 						}
+						cout << "\t-1. Go Back" << endl;
 						cin >> unitChoice;
-						cout << "\tHow many do you want to train?" << endl;
-						int size;
-						cin >> size;
 
-						player.buildUnit(vehicle[unitChoice], size);
-						break;
+						if (unitChoice == -1)
+						{
+							goto Selection;
+						}
+						else
+						{
+							player.buildUnit(vehicle[unitChoice]);
+						}
+						break;;
 					}
 					case 3:
 					{
 						cout << endl << line << endl << "\tWhich air unit do you want to buy?" << endl;
-						for (int x = 0; x < 2; x++)
+						for (int x = 0; x < 3; x++)
 						{
 							cout << "\t" << x << ". " << GDI_AIR[x] << endl;
 						}
+						cout << "\t-1. Go Back" << endl;
 						cin >> unitChoice;
-						cout << "\tHow many do you want to train?" << endl;
-						int size;
-						cin >> size;
 
-						player.buildUnit(air[unitChoice], size);
+						if (unitChoice == -1)
+						{
+							goto Selection;
+						}
+						else
+						{
+							player.buildUnit(air[unitChoice]);
+						}
 						break;
 					}
 				}
 				break;
 			}
-			case 7:
+			case 7: // Destroy Unit
 			{
 				if (player.getTotalUnits() > 0)
 				{
 					cout << "\tWhich unit do you want to destroy?" << endl;
 					player.printUnitList();
+					cout << "\t-1. Go Back" << endl;
 					cin >> select;
-					cout << "\tHow many do you want to destroy?" << endl;
-					int destroyTotal;
-					cin >> destroyTotal;
 
-					player.destroyUnit(select, destroyTotal);
+					if (select != -1)
+					{
+						cout << "\tHow many do you want to destroy?" << endl;
+						int destroyTotal;
+						cin >> destroyTotal;
+
+						player.destroyUnit(select, destroyTotal);
+					}
 				}
 				else
 				{
@@ -262,16 +298,13 @@ int main()
 			}
 		}
 
-		if (choice > 1 && choice < 8)
+		if (choice > 1 && choice < 8 && select != -1)
 		{
 			player.harvest();
 		}
-		
 
 		player.checkAlive();
-
 	}while (choice != 8 && player.getAlive());
-
 
 	cout << endl << line << endl << "\tThank you for playing" << endl;
 
