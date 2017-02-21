@@ -15,6 +15,7 @@ class Player
 		vector <Building*> buildings;
 		vector <Unit*> units;
 		vector <Building*> offlineBuildings;
+		vector <Upgrade> currentUpgrades;
 
 	public:
 		Player();
@@ -42,6 +43,7 @@ class Player
 		void checkPower();
 		void checkAlive();
 		void harvest();
+		void buyUpgrades();
 
 		void printUnits();
 		void printUnitList();

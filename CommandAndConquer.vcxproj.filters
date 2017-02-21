@@ -27,6 +27,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Upgrade.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Building.h">
@@ -117,6 +120,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="HammerHead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Upgrade.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

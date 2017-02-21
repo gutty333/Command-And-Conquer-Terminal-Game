@@ -21,6 +21,7 @@ Building::Building()
 	online = true;
 	supportStructure = false;
 	airField = false;
+	upgradeStructure = false;
 }
 
 // Setter Method
@@ -62,9 +63,17 @@ bool Building::getSupportStructure()
 {
 	return supportStructure;
 }
+bool Building::getUpgradeStructure()
+{
+	return upgradeStructure;
+}
 vector <string> Building::getRequirements()
 {
 	return requirements;
+}
+Upgrade Building::getUpgrade(int index)
+{
+	return upgradesProvided[index];
 }
 
 // Info Method
@@ -75,6 +84,18 @@ void Building::printInfo()
 	cout << "\tCost: " << cost << endl;
 	cout << "\tHit points: " << hitPoint << "/" << hitPointFull << endl;
 	cout << (online ? "\tBuilding is online" : "\tBuilding is offline") << endl;
+}
+// Print Upgrade Method
+void Building::printUpgradeList()
+{
+	string line;
+	line.assign(10, '-');
+	for (int x = 0; x < upgradesProvided.size(); x++)
+	{
+		cout << "\tUpgrade " << x << endl;
+		cout << "\t" << line << endl;
+		upgradesProvided[x].printInfo();
+	}
 }
 
 // Child Constructors
@@ -132,10 +153,17 @@ CommandPost::CommandPost()
 	hitPoint = hitPointFull = 5000;
 	cost = 1500;
 	supportStructure = true;
+	upgradeStructure = true;
 
 	requirements.push_back(GDI[0]);
 	requirements.push_back(GDI[1]);
 	requirements.push_back(GDI[2]);
+
+	Upgrade upgradeOne("AP Ammo", "This upgrade bestows a firepower boost to Watchtowers, Hammerheads, Riflemen, and APCS, doubling their damage. Its costs 2000", 2000);
+	Upgrade upgradeTwo("Sensor Pod", "Sensor Pods can be equipped onto Orcas to allow them to launch stealth-detecting pods. This upgrade costs $500", 500);
+
+	upgradesProvided.push_back(upgradeOne);
+	upgradesProvided.push_back(upgradeTwo);
 }
 AirField::AirField()
 {
@@ -156,10 +184,19 @@ Armory::Armory()
 	hitPoint = hitPointFull = 3000;
 	cost = 1000;
 	supportStructure = true;
+	upgradeStructure = true;
 
 	requirements.push_back(GDI[0]);
 	requirements.push_back(GDI[1]);
 	requirements.push_back(GDI[3]);
+
+	Upgrade upgradeOne("Composite Armor", "Provides GDI Infantry with significantly more protection from hostile fire. It affects Rifleman Squads, Missile Squads, and Grenadiers. This upgrade costs $1500.", 1500);
+	Upgrade upgradeTwo("Power Pack", "Power Packs give Zone Troopers a 50% boost in health and also allow self-healing when the squad is idle. This upgrade costs $1000.", 1000);
+	Upgrade upgradeThree("Scanner Pack", "Equips Zone Troopers with scanner packs, increases their sight radius and allows them to detect stealth in a small radius. This upgrade costs $1000.", 1000);
+
+	upgradesProvided.push_back(upgradeOne);
+	upgradesProvided.push_back(upgradeTwo);
+	upgradesProvided.push_back(upgradeThree);
 }
 TechCenter::TechCenter()
 {
@@ -168,9 +205,18 @@ TechCenter::TechCenter()
 	hitPoint = hitPointFull = 10000;
 	cost = 4000;
 	supportStructure = true;
+	upgradeStructure = true;
 
 	requirements.push_back(GDI[0]);
 	requirements.push_back(GDI[5]);
+
+	Upgrade upgradeOne("Mortar", "Pitbulls can be equipped with light mortars, which increase their effectiveness against infantry units and structures. This upgrade costs $1000.", 1000);
+	Upgrade upgradeTwo("Railgun", "Predator Tanks,Mammoth Tanks, Guardian Cannons, and Battle Bases all benefit from Railguns. This upgrade costs $4000.", 4000);
+	Upgrade upgradeThree("Stratofighter Boosters", "Stratofighter Boosters provide Firehawks with the ability to quickly accelerate into the stratosphere and fly almost instantaneously to any location. This upgrade costs $1000.", 1000);
+
+	upgradesProvided.push_back(upgradeOne);
+	upgradesProvided.push_back(upgradeTwo);
+	upgradesProvided.push_back(upgradeThree);
 }
 CommandLink::CommandLink()
 {

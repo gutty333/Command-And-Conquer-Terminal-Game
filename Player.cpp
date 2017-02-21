@@ -112,7 +112,74 @@ void Player::printUnitList()
 		cout << "\t" << x << ". " << units[x]->getName() << " - total= " << units[x]->getTotal() << endl;
 	}
 }
+// Print Upgrade Method
+void Player::buyUpgrades()
+{
+	int menuIndex = 0;
+	int x = 0; // Building index
 
+	// Loop showcasing which structures allow us to buy upgrades
+	cout << "\tWhich structure do you want buy upgrades from?" << endl;
+	for (x; x < buildings.size(); x++)
+	{
+		if (buildings[x]->getUpgradeStructure() && buildings[x]->getOnline())
+		{
+			cout << "\t" << menuIndex << ". " << buildings[x]->getName() << " - " << buildings[x]->getHitPoint() << "|" << buildings[x]->getHitPointFull() << " - " << (buildings[x]->getOnline() ? "online " : "offline ") << endl;
+			menuIndex++;
+		}
+	}
+
+	if (menuIndex == 0)
+	{
+		cout << "\tUnable to buy upgrades, reasons can be:" << endl;
+		cout << "\t1. You do have any structures that allow you buy upgrades" << endl;
+		cout << "\t2. Your upgrade structure might be offline" << endl;
+		return;
+	}
+	
+	cout << "\t-1. Go Back" << endl;
+	int select;
+	cin >> select;
+
+	if (select == -1)
+	{
+		return;
+	}
+	else
+	{
+		cout << "\tWhich upgrade do you want to buy from the " << buildings[x]->getName() << endl;
+		buildings[x]->printUpgradeList();
+		cin >> select;
+
+		Upgrade current = buildings[x]->getUpgrade(select);
+		int newCost = resources - current.getCost();
+
+		// Analyze if we have enough resources for the selected upgrade
+		if (newCost > 0)
+		{
+			// Checking if we have that current upgrade
+			for (int y = 0; y < currentUpgrades.size(); y++)
+			{
+				if (current.getName == currentUpgrades[y])
+				{
+					cout << "Unable to purchase you already have this upgrade" << endl;
+					return;
+				}
+			}
+
+			// Update our resources and add the upgrade to our list
+			cout << "\tYou have purchased " << current.getName() << endl;
+			setResources(newCost);
+			current.setActive(true);
+			currentUpgrades.push_back(current);
+		}
+		else
+		{
+			cout << "\tInsufficient Funds, unable to buy" << endl;
+		}
+		
+	}
+}
 
 
 // Sell Building Method

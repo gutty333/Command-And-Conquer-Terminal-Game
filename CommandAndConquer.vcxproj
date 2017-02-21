@@ -23,6 +23,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Unit.cpp" />
+    <ClCompile Include="Upgrade.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Airfield.h" />
@@ -53,6 +54,7 @@
     <ClInclude Include="SniperTeam.h" />
     <ClInclude Include="TechCenter.h" />
     <ClInclude Include="Unit.h" />
+    <ClInclude Include="Upgrade.h" />
     <ClInclude Include="WarFactory.h" />
     <ClInclude Include="ZoneTrooper.h" />
   </ItemGroup>
@@ -66,7 +68,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
