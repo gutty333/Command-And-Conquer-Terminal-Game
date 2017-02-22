@@ -10,4 +10,4 @@ To do list:
 8.Let the player force fire either buildings and units
 9.Allow for faction selection (utilize files to minimize statements)
 10.Rebalance the damage taken
-11.Fix the special air unit behavior. If an airfield with special air units is sold those units are destroyed also. If special air units are destroyed find their specific air field they belonged to. 
+11.Fix the special air unit behavior. If an airfield with special air units is sold those units are destroyed also. If special air units are destroyed find their specific air field they belonged to also only remove that specific air unit. 
