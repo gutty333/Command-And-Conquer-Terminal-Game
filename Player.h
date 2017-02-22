@@ -43,12 +43,13 @@ class Player
 		void checkPower();
 		void checkAlive();
 		void harvest();
-		void buyUpgrades();
+		void buyUpgrades(int&);
 
 		void printUnits();
 		void printUnitList();
 		void printBuildings();
 		void printBuildingList();
+		void printUpgrades();
 };
 
 #endif

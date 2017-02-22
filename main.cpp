@@ -83,13 +83,14 @@ int main()
 		cout << "5. Repair Building" << endl;
 		cout << "6. Buy Units" << endl;
 		cout << "7. Destroy Units" << endl;
-		cout << "8. Exit" << endl;
+		cout << "8. Buy Upgrades" << endl;
+		cout << "9. Exit" << endl;
 		cin >> choice;
 
 		// User input validation
-		while (choice < 1 || choice > 8)
+		while (choice < 1 || choice > 9)
 		{
-			cout << "Please enter a valid choice number (1-8)" << endl;
+			cout << "Please enter a valid choice number (1-9)" << endl;
 			cin >> choice;
 		}
 
@@ -113,6 +114,9 @@ int main()
 
 				cout << endl << line << endl << "\tUnits" << endl;
 				player.printUnits();
+
+				cout << endl << line << endl << "\tUpgrades" << endl;
+				player.printUpgrades();
 
 				break;
 			}
@@ -296,15 +300,19 @@ int main()
 				
 				break;
 			}
+			case 8: // Buy Upgrades
+			{
+				player.buyUpgrades(select);
+			}
 		}
 
-		if (choice > 1 && choice < 8 && select != -1)
+		if (choice > 1 && choice < 9 && select != -1)
 		{
 			player.harvest();
 		}
 
 		player.checkAlive();
-	}while (choice != 8 && player.getAlive());
+	}while (choice != 9 && player.getAlive());
 
 	cout << endl << line << endl << "\tThank you for playing" << endl;
 

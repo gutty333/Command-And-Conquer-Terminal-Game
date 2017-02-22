@@ -88,13 +88,9 @@ void Building::printInfo()
 // Print Upgrade Method
 void Building::printUpgradeList()
 {
-	string line;
-	line.assign(10, '-');
 	for (int x = 0; x < upgradesProvided.size(); x++)
 	{
-		cout << "\tUpgrade " << x << endl;
-		cout << "\t" << line << endl;
-		upgradesProvided[x].printInfo();
+		cout << "\t" << x << ". " << upgradesProvided[x].getName() << endl;
 	}
 }
 
@@ -159,8 +155,8 @@ CommandPost::CommandPost()
 	requirements.push_back(GDI[1]);
 	requirements.push_back(GDI[2]);
 
-	Upgrade upgradeOne("AP Ammo", "This upgrade bestows a firepower boost to Watchtowers, Hammerheads, Riflemen, and APCS, doubling their damage. Its costs 2000", 2000);
-	Upgrade upgradeTwo("Sensor Pod", "Sensor Pods can be equipped onto Orcas to allow them to launch stealth-detecting pods. This upgrade costs $500", 500);
+	Upgrade upgradeOne("AP Ammo", "This upgrade bestows a firepower boost to Watchtowers, Hammerheads, Riflemen, and APCS, doubling their damage.", 2000);
+	Upgrade upgradeTwo("Sensor Pod", "Sensor Pods can be equipped onto Orcas to allow them to launch stealth-detecting pods.", 500);
 
 	upgradesProvided.push_back(upgradeOne);
 	upgradesProvided.push_back(upgradeTwo);
@@ -190,9 +186,9 @@ Armory::Armory()
 	requirements.push_back(GDI[1]);
 	requirements.push_back(GDI[3]);
 
-	Upgrade upgradeOne("Composite Armor", "Provides GDI Infantry with significantly more protection from hostile fire. It affects Rifleman Squads, Missile Squads, and Grenadiers. This upgrade costs $1500.", 1500);
-	Upgrade upgradeTwo("Power Pack", "Power Packs give Zone Troopers a 50% boost in health and also allow self-healing when the squad is idle. This upgrade costs $1000.", 1000);
-	Upgrade upgradeThree("Scanner Pack", "Equips Zone Troopers with scanner packs, increases their sight radius and allows them to detect stealth in a small radius. This upgrade costs $1000.", 1000);
+	Upgrade upgradeOne("Composite Armor", "Provides GDI Infantry with significantly more protection from hostile fire. It affects Rifleman Squads, Missile Squads, and Grenadiers.", 1500);
+	Upgrade upgradeTwo("Power Pack", "Power Packs give Zone Troopers a 50% boost in health and also allow self-healing when the squad is idle.", 1000);
+	Upgrade upgradeThree("Scanner Pack", "Equips Zone Troopers with scanner packs, increases their sight radius and allows them to detect stealth in a small radius.", 1000);
 
 	upgradesProvided.push_back(upgradeOne);
 	upgradesProvided.push_back(upgradeTwo);
@@ -210,9 +206,9 @@ TechCenter::TechCenter()
 	requirements.push_back(GDI[0]);
 	requirements.push_back(GDI[5]);
 
-	Upgrade upgradeOne("Mortar", "Pitbulls can be equipped with light mortars, which increase their effectiveness against infantry units and structures. This upgrade costs $1000.", 1000);
-	Upgrade upgradeTwo("Railgun", "Predator Tanks,Mammoth Tanks, Guardian Cannons, and Battle Bases all benefit from Railguns. This upgrade costs $4000.", 4000);
-	Upgrade upgradeThree("Stratofighter Boosters", "Stratofighter Boosters provide Firehawks with the ability to quickly accelerate into the stratosphere and fly almost instantaneously to any location. This upgrade costs $1000.", 1000);
+	Upgrade upgradeOne("Mortar", "Pitbulls can be equipped with light mortars, which increase their effectiveness against infantry units and structures.", 1000);
+	Upgrade upgradeTwo("Railgun", "Predator Tanks,Mammoth Tanks, Guardian Cannons, and Battle Bases all benefit from Railguns.", 4000);
+	Upgrade upgradeThree("Stratofighter Boosters", "Stratofighter Boosters provide Firehawks with the ability to quickly accelerate into the stratosphere and fly almost instantaneously to any location.", 1000);
 
 	upgradesProvided.push_back(upgradeOne);
 	upgradesProvided.push_back(upgradeTwo);

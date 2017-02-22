@@ -11,7 +11,6 @@ private:
 	string name;
 	string info;
 	int cost;
-	bool active;
 
 public:
 	Upgrade(string, string, int);
@@ -19,7 +18,6 @@ public:
 	string getName();
 	string getInfo();
 	int getCost();
-	bool getActive();
 	void printInfo();
 };
 
