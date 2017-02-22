@@ -57,7 +57,7 @@ int main()
 	Player player;
 	Building* structure;
 	Unit* unit;
-	int choice,select;
+	int choice,select = 0;
 	string line;
 	line.assign(50, '-');
 	cout << "Welcome back commander" << endl;
@@ -167,10 +167,11 @@ int main()
 			}
 			case 5: // Repair Buildings
 			{
-				cout << endl << line << endl << "\tWhich structure do you want to repair?" << endl;
-				player.printBuildingList();
-				cout << "\t-1. Go Back" << endl;
-				cin >> select;
+				RepairSelection:
+					cout << endl << line << endl << "\tWhich structure do you want to repair?" << endl;
+					player.printBuildingList();
+					cout << "\t-1. Go Back" << endl;
+					cin >> select;
 
 				if (select != -1 && player.needsRepair(select))
 				{
@@ -178,6 +179,7 @@ int main()
 					cout << "\tWhat do you want to use to repair the structure?" << endl;
 					cout << "\t1. Repair Tool" << endl;
 					cout << "\t2. Engineer" << endl;
+					cout << "\t-1. Go Back" << endl;
 					int repairChoice;
 					cin >> repairChoice;
 
@@ -193,6 +195,10 @@ int main()
 							player.repairBuilding2(select);
 							break;
 						}
+						case -1:
+						{
+							goto RepairSelection;
+						}
 					}
 				}
 				
@@ -200,7 +206,7 @@ int main()
 			}
 			case 6: // Buy Units
 			{
-				Selection:
+				UnitSelection:
 					cout << endl << line << endl << "\tWhich unit type do you want to buy?" << endl;
 					for (int x = 0; x < 3; x++)
 					{
@@ -224,7 +230,7 @@ int main()
 
 						if (unitChoice == -1)
 						{
-							goto Selection;
+							goto UnitSelection;
 						}
 						else
 						{
@@ -244,7 +250,7 @@ int main()
 
 						if (unitChoice == -1)
 						{
-							goto Selection;
+							goto UnitSelection;
 						}
 						else
 						{
@@ -264,7 +270,7 @@ int main()
 
 						if (unitChoice == -1)
 						{
-							goto Selection;
+							goto UnitSelection;
 						}
 						else
 						{
@@ -275,7 +281,7 @@ int main()
 				}
 				break;
 			}
-			case 7: // Destroy Unit
+			case 7: // Destroy Units
 			{
 				if (player.getTotalUnits() > 0)
 				{

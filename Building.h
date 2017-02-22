@@ -43,7 +43,8 @@ class Building
 		virtual void printInfo();
 		
 		virtual void addAirUnit() {};
-		virtual bool airFieldSpace() { return false;};
+		virtual void removeAirUnit() {};
+		virtual int getTotalAirUnit() { return 0; };
 };
 
 #endif

@@ -232,9 +232,17 @@ void AirField::addAirUnit()
 {
 	totalAirUnits++;
 }
-bool AirField::airFieldSpace()
+void AirField::removeAirUnit()
 {
-	return totalAirUnits < 4;
+	totalAirUnits--;
+	if (totalAirUnits < 0)
+	{
+		totalAirUnits = 0;
+	}
+}
+int AirField::getTotalAirUnit()
+{
+	return totalAirUnits;
 }
 void AirField::printInfo()
 {

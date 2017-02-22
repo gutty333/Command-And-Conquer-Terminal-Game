@@ -118,7 +118,7 @@ void Player::printUnitList()
 
 	for (int x = 0; x < total; x++)
 	{
-		cout << "\t" << x << ". " << units[x]->getName() << " - total = " << units[x]->getTotal() << endl;
+		cout << "\t" << x << ". " << units[x]->getName() << " - total=" << units[x]->getTotal() << endl;
 	}
 }
 // Buy Upgrade Method
@@ -288,7 +288,6 @@ void Player::buildBuilding(Building* A)
 		}
 	}
 
-	
 	// Second check if we have enough resources to buy the structure
 	int newMoney = getResources() - A->getCost();
 	if (newMoney > 0)
@@ -548,7 +547,7 @@ void Player::buildUnit(Unit* unit)
 	}
 	
 	cout << "\tHow many do you want to train?" << endl;
-	int size;
+	int size,index2 = 0;
 	cin >> size;
 	// Analyze if we have enough resources to build the unit
 	for (int x = 0; x < size; x++)
@@ -562,12 +561,13 @@ void Player::buildUnit(Unit* unit)
 			// For example each airfield can only allow 4 air units to be trained
 			if (unit->getAirUnit())
 			{
-				for (int y = 0; y < buildings.size(); y++)
+				for (index2; index2 < buildings.size(); index2++)
 				{
-					if (buildings[y]->getName() == GDI[6] && buildings[y]->airFieldSpace())
+					if (buildings[index2]->getName() == GDI[6] && buildings[index2]->getTotalAirUnit() < 4 && buildings[index2]->getOnline())
 					{
-						buildings[y]->addAirUnit();
+						buildings[index2]->addAirUnit();
 						airUnitCheck = true;
+						break;
 					}
 
 				}
@@ -614,6 +614,27 @@ void Player::destroyUnit(int index, int amount)
 	if (units[index]->getTotal() - amount <= 0)
 	{
 		cout << "\tYou lost all your " << units[index]->getName() << "/s" << endl;
+		
+
+		// Condition in case the unit we are deleting is a special air unit
+		// We have to free up space from our airfield
+		// Placeholder
+		// Needs Fix
+		if (units[index]->getAirUnit())
+		{
+			for (int x = buildings.size() - 1; x >= 0; x--)
+			{
+				if (buildings[x]->getName() == GDI[6])
+				{
+					while (buildings[x]->getTotalAirUnit() > 0 && amount > 0)
+					{
+						buildings[x]->removeAirUnit();
+						amount--;
+					}					
+				}
+			}
+		}
+
 		units.erase(units.begin() + index);
 	}
 	else // Just destroy the amount specified
@@ -621,6 +642,22 @@ void Player::destroyUnit(int index, int amount)
 		int total = units[index]->getTotal() - amount;
 		cout << "\tYou lost " << amount << " " << units[index]->getName() << "/s" << endl;
 		units[index]->setTotal(total);
+
+		// Special Air Unit Condition
+		if (units[index]->getAirUnit())
+		{
+			for (int x = buildings.size() - 1; x >= 0; x--)
+			{
+				if (buildings[x]->getName() == GDI[6])
+				{
+					while (buildings[x]->getTotalAirUnit() > 0 && amount > 0)
+					{
+						buildings[x]->removeAirUnit();
+						amount--;
+					}
+				}
+			}
+		}
 	}
 }
 

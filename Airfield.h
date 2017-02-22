@@ -11,8 +11,9 @@ private:
 public:
 	AirField();
 	virtual void printInfo();
-	virtual bool airFieldSpace();
 	virtual void addAirUnit();
+	virtual void removeAirUnit();
+	virtual int getTotalAirUnit();
 };
 
 #endif 
