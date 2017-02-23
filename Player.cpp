@@ -180,7 +180,7 @@ void Player::buyUpgrades(int& select)
 			int newCost = resources - current.getCost();
 
 			// Analyze if we have enough resources for the selected upgrade
-			if (newCost > 0)
+			if (newCost >= 0)
 			{
 				// Checking if we have that current upgrade
 				for (int y = 0; y < currentUpgrades.size(); y++)
@@ -193,9 +193,23 @@ void Player::buyUpgrades(int& select)
 				}
 				
 				// Update our resources and add the upgrade to our list
+				cout << "\tUpgrade Complete" << endl;
 				cout << "\tYou have purchased " << current.getName() << endl;
 				setResources(newCost);
 				currentUpgrades.push_back(current);
+
+				// Apply the upgrades to the corresponding units
+				for (int i = 0; i < current.getTotaUnitsUpgrading(); i++)
+				{
+					for (int y = 0; y < units.size(); y++)
+					{
+						if (units[y]->getName() == current.getUnit(i))
+						{
+							units[y]->addUpgrade(current.getName());
+						}
+					}
+				}
+				
 			}
 			else
 			{
@@ -559,6 +573,7 @@ void Player::buildUnit(Unit* unit)
 
 			// Condition in the case we are training air units that have a limit based on the number of airfields we have
 			// For example each airfield can only allow 4 air units to be trained
+			// Placeholder
 			if (unit->getAirUnit())
 			{
 				for (index2; index2 < buildings.size(); index2++)
@@ -579,11 +594,24 @@ void Player::buildUnit(Unit* unit)
 
 			if (airUnitCheck || regularUnit)
 			{
-				cout << "\tTrainning: " << unit->getName() << " ready for combat" << endl;
+				cout << "\tTraining: " << unit->getName() << " ready for combat" << endl;
 				resources -= unit->getCost();
 
 				if (!found)
 				{
+					// Apply corresponding upgrades to the new unit we are buying
+					// For example if we have upgrade that is used by the new unit we bought add that upgrade to it
+					for (int i = 0; i < currentUpgrades.size(); i++)
+					{
+						for (int y = 0; y < currentUpgrades[i].getTotaUnitsUpgrading(); y++)
+						{
+							if (unit->getName() == currentUpgrades[i].getUnit(y))
+							{
+								unit->addUpgrade(currentUpgrades[i].getName());
+							}
+						}
+					}
+
 					units.push_back(unit);
 					found = true;
 				}

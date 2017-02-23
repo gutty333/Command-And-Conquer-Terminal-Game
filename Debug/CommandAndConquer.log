@@ -1,4 +1,4 @@
-﻿Build started 2/22/2017 1:14:05 PM.
+﻿Build started 2/23/2017 11:57:17 AM.
      1>Project "C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Command-And-Conquer-Text-Game\CommandAndConquer.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Player.cpp
@@ -8,19 +8,21 @@
      1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(95): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(134): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(186): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(235): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(271): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(275): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(320): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(392): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(425): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(442): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(516): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(520): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(540): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(564): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(675): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(690): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(204): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(249): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(285): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(289): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(334): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(406): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(439): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(456): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(530): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(534): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(554): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(579): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(604): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(701): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\command-and-conquer-text-game\player.cpp(716): warning C4018: '<' : signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Command-And-Conquer-Text-Game\Debug\CommandAndConquer.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Command-And-Conquer-Text-Game\Debug\CommandAndConquer.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Command-And-Conquer-Text-Game\Debug\CommandAndConquer.lib" /MACHINE:X86 Debug\Building.obj
          Debug\main.obj
@@ -32,4 +34,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.17
+Time Elapsed 00:00:01.22

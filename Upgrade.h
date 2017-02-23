@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 #ifndef UPGRADE_H
@@ -11,6 +12,7 @@ private:
 	string name;
 	string info;
 	int cost;
+	vector <string> unitsUpgrading;
 
 public:
 	Upgrade(string, string, int);
@@ -19,6 +21,9 @@ public:
 	string getInfo();
 	int getCost();
 	void printInfo();
+	void addUnit(string);
+	string getUnit(int);
+	int getTotaUnitsUpgrading();
 };
 
 #endif

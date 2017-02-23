@@ -48,6 +48,10 @@ void Unit::setTotal(int x)
 {
 	total = x;
 }
+void Unit::addUpgrade(string upgradeName)
+{
+	upgrades.push_back(upgradeName);
+}
 
 // Getter Methods
 string Unit::getName()
@@ -101,12 +105,24 @@ void Unit::printInfo()
 		cout << "\tThis unit can attack: " << endl;
 		for (int x = 0; x < combatAccess.size(); x++)
 		{
-			cout << "\t" << combatAccess[x] << " Units" << endl;
+			cout << "\t  " << combatAccess[x] << " Units" << endl;
 		}
 	}
 	else
 	{
 		cout << "\tThis unit is unable to attack" << endl;
+	}
+	if (upgrades.size() > 0)
+	{
+		cout << "\tUpgrades: " << endl;
+		for (int x = 0; x < upgrades.size(); x++)
+		{
+			cout << "\t  " << upgrades[x] << endl;
+		}
+	}
+	else
+	{
+		cout << "\tUpgrades: None" << endl;
 	}
 }
 

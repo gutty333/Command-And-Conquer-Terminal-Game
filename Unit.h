@@ -17,6 +17,7 @@ class Unit
 		int total;
 		vector <string> requirements;
 		vector <string> combatAccess;
+		vector <string> upgrades;
 		bool specialAirUnit;
 
 	public:
@@ -24,6 +25,7 @@ class Unit
 
 		void setHitPoint(int);
 		void setTotal(int);
+		void addUpgrade(string);
 
 		string getName();
 		string getType();

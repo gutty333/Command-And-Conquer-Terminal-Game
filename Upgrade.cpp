@@ -29,3 +29,22 @@ void Upgrade::printInfo()
 	cout << "\tDescription: " << info << endl;
 	cout << "\tCost: " << cost << endl;
 }
+
+// Add Units Upgrading Method
+// This is the list of units receiving the upgrade
+void Upgrade::addUnit(string unitName)
+{
+	unitsUpgrading.push_back(unitName);
+}
+
+// Get Unit Method
+string Upgrade::getUnit(int index)
+{
+	return unitsUpgrading[index];
+}
+
+// Get Unit Total Method
+int Upgrade::getTotaUnitsUpgrading()
+{
+	return unitsUpgrading.size();
+}

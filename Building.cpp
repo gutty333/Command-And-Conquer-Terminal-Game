@@ -12,6 +12,12 @@
 
 // List of GDI buildings
 const string GDI[] = { "Construction Yard" , "Power Plant", "Refinery", "Barracks", "War Factory", "Command Post", "Airfield" , "Armory", "Tech Center", "Space Command Uplink" };
+// GDI Infantry Units
+const string GDI_INFANTRY[] = { "Rifleman Squad", "Missile Squad", "Engineer", "Grenadier Squad", "Sniper Team", "Zone Trooper" };
+// GDI Vehicle Units
+const string GDI_VEHICLE[] = { "CC-6 Pitbull", "Guardian APC", "MBT-6 Predator", "Harvester", "Mobile Construction Vehicle", "Rig", "Juggernaut MK. III", "Mammoth MK. III" };
+// GDI Air Units
+const string GDI_AIR[] = { "A-15 Orca", "Firehawk", "Hammerhead" };
 
 // Constructor
 Building::Building()
@@ -158,6 +164,11 @@ CommandPost::CommandPost()
 	Upgrade upgradeOne("AP Ammo", "This upgrade bestows a firepower boost to Watchtowers, Hammerheads, Riflemen, and APCS, doubling their damage.", 2000);
 	Upgrade upgradeTwo("Sensor Pod", "Sensor Pods can be equipped onto Orcas to allow them to launch stealth-detecting pods.", 500);
 
+	upgradeOne.addUnit(GDI_INFANTRY[0]);
+	upgradeOne.addUnit(GDI_VEHICLE[1]);
+	upgradeOne.addUnit(GDI_AIR[2]);
+	upgradeTwo.addUnit(GDI_AIR[0]);
+
 	upgradesProvided.push_back(upgradeOne);
 	upgradesProvided.push_back(upgradeTwo);
 }
@@ -190,6 +201,12 @@ Armory::Armory()
 	Upgrade upgradeTwo("Power Pack", "Power Packs give Zone Troopers a 50% boost in health and also allow self-healing when the squad is idle.", 1000);
 	Upgrade upgradeThree("Scanner Pack", "Equips Zone Troopers with scanner packs, increases their sight radius and allows them to detect stealth in a small radius.", 1000);
 
+	upgradeOne.addUnit(GDI_INFANTRY[0]);
+	upgradeOne.addUnit(GDI_INFANTRY[1]);
+	upgradeOne.addUnit(GDI_INFANTRY[3]);
+	upgradeTwo.addUnit(GDI_INFANTRY[5]);
+	upgradeThree.addUnit(GDI_INFANTRY[5]);
+
 	upgradesProvided.push_back(upgradeOne);
 	upgradesProvided.push_back(upgradeTwo);
 	upgradesProvided.push_back(upgradeThree);
@@ -209,6 +226,11 @@ TechCenter::TechCenter()
 	Upgrade upgradeOne("Mortar", "Pitbulls can be equipped with light mortars, which increase their effectiveness against infantry units and structures.", 1000);
 	Upgrade upgradeTwo("Railgun", "Predator Tanks,Mammoth Tanks, Guardian Cannons, and Battle Bases all benefit from Railguns.", 4000);
 	Upgrade upgradeThree("Stratofighter Boosters", "Stratofighter Boosters provide Firehawks with the ability to quickly accelerate into the stratosphere and fly almost instantaneously to any location.", 1000);
+
+	upgradeOne.addUnit(GDI_VEHICLE[0]);
+	upgradeTwo.addUnit(GDI_VEHICLE[2]);
+	upgradeTwo.addUnit(GDI_VEHICLE[7]);
+	upgradeThree.addUnit(GDI_AIR[1]);
 
 	upgradesProvided.push_back(upgradeOne);
 	upgradesProvided.push_back(upgradeTwo);
