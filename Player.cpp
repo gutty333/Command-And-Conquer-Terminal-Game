@@ -516,7 +516,7 @@ void Player::checkAlive()
 	if (buildings.size() <= 0)
 	{
 		alive = false;
-		cout << "\tYou have been defeated" << endl;
+		cout << endl << "\tYou have been defeated" << endl;
 	}
 }
 

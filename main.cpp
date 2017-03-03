@@ -55,13 +55,11 @@ const string GDI_AIR[] = { "A-15 Orca", "Firehawk" , "Hammerhead"};
 int main()
 {
 	Player player;
-	Building* structure;
-	Unit* unit;
 	int choice,select = 0;
 	string line;
 	line.assign(50, '-');
 	cout << "Welcome back commander" << endl;
-	cout << "This is Command and Conquer you will be playing as the GDI faction" << endl;
+	cout << "This is Command and Conquer, you will be playing as the GDI faction" << endl;
 	player.setResources(20000);
 	cout << endl << "Entering Sandbox Mode" << endl;
 	cout << line << endl;
@@ -94,8 +92,6 @@ int main()
 			cin >> choice;
 		}
 
-
-
 		switch (choice)
 		{
 			case 1: // View Stats
@@ -117,7 +113,6 @@ int main()
 
 				cout << endl << line << endl << "\tUpgrades" << endl;
 				player.printUpgrades();
-
 				break;
 			}
 			case 2: // Build Building
