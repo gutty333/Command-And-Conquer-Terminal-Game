@@ -16,14 +16,13 @@ private:
 
 public:
 	Upgrade(string, string, int);
-	void setActive(bool);
 	string getName();
 	string getInfo();
 	int getCost();
 	void printInfo();
 	void addUnit(string);
 	string getUnit(int);
-	int getTotaUnitsUpgrading();
+	int getTotalUnitsUpgrading();
 };
 
 #endif

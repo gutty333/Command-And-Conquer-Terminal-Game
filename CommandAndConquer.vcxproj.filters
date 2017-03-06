@@ -32,70 +32,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GDI\TechCenter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Building.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PowerPlant.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Refinery.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WarFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Unit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MissileSquad.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Predator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ConstructionYard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CommandPost.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Barracks.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Airfield.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Armory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TechCenter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CommandLink.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Rifleman.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engineer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Grenadier.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SniperTeam.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ZoneTrooper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Apc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Pitbull.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Harvester.h">
@@ -104,25 +47,22 @@
     <ClInclude Include="Mcv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Rig.h">
+    <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Juggernaut.h">
+    <ClInclude Include="Refinery.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MammothTank.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Orca.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Firehawk.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HammerHead.h">
+    <ClInclude Include="Unit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Upgrade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WarFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NOD\Airtower.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,0 +1,9 @@
+Power Plant
+Refinery
+Barracks
+War Factory
+Command Post
+Airfield
+Armory
+Tech Center
+Space Command Uplink

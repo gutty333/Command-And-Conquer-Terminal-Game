@@ -14,17 +14,15 @@ class Unit
 		string description;
 		int hitPoint;
 		int cost;
-		int total;
 		vector <string> requirements;
 		vector <string> combatAccess;
 		vector <string> upgrades;
 		bool specialAirUnit;
+		bool engineer;
 
 	public:
 		Unit();
-
 		void setHitPoint(int);
-		void setTotal(int);
 		void addUpgrade(string);
 
 		string getName();
@@ -32,8 +30,8 @@ class Unit
 		string getDescription();
 		int getHitPoint();
 		int getCost();
-		int getTotal();
 		bool getAirUnit();
+		bool getEngineer();
 		vector <string> getRequirements();
 		vector <string> getCombatAccess();
 		void printInfo();

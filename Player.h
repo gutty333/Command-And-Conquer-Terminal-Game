@@ -10,6 +10,7 @@ class Player
 		int resources;
 		int currentPower;
 		int requiredPower;
+		string faction;
 		bool alive;
 		bool lowPower;
 		vector <Building*> buildings;
@@ -27,19 +28,21 @@ class Player
 		int getResources();
 		int getCurrentPower();
 		int getRequiredPower();
+		string getFaction();
 		bool getAlive();
 		int getTotalBuildings();
 		int getTotalUnits();
+		int getTotalSpecificUnit(string);
 
-		void sellBuilding(int);
-		void buildBuilding(Building*);
-		void buildUnit(Unit*);
+		void sellBuilding(int&);
+		void buildBuilding(int&, vector <string>);
+		void buildUnit(int&, vector <string>, vector <string>, vector <string>);
 		void destroyUnit(int, int);
 		bool needsRepair(int);
 		void repairBuilding(int);
 		void repairBuilding2(int);
 
-		void managePower(int);
+		void managePower(int&);
 		void checkPower();
 		void checkAlive();
 		void harvest();

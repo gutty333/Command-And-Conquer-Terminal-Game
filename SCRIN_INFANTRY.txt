@@ -1,0 +1,5 @@
+Buzzer
+Disintegrator
+Assimilator
+Shock Trooper
+Ravager

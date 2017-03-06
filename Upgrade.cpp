@@ -44,7 +44,7 @@ string Upgrade::getUnit(int index)
 }
 
 // Get Unit Total Method
-int Upgrade::getTotaUnitsUpgrading()
+int Upgrade::getTotalUnitsUpgrading()
 {
 	return unitsUpgrading.size();
 }

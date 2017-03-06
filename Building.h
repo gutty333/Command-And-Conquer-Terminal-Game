@@ -21,6 +21,8 @@ class Building
 		bool online;
 		bool supportStructure;
 		bool airField;
+		bool refinery;
+		bool powerProvider;
 		bool upgradeStructure;
 
 	public:
@@ -38,12 +40,16 @@ class Building
 		bool getOnline();
 		bool getSupportStructure();
 		bool getUpgradeStructure();
+		bool getAirField();
+		bool getRefinery();
+		bool getPowerProvider();
 		vector <string> getRequirements();
 		void printUpgradeList();
 		virtual void printInfo();
 		
-		virtual void addAirUnit() {};
-		virtual void removeAirUnit() {};
+		virtual void addAirUnit(string) {};
+		virtual void removeAirUnit(int) {};
+		virtual string getAirUnitName(int) { return ""; };
 		virtual int getTotalAirUnit() { return 0; };
 };
 

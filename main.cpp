@@ -1,76 +1,81 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 #include "Player.h"
-
-#include "Building.h"
-#include "ConstructionYard.h"
-#include "PowerPlant.h"
-#include "Refinery.h"
-#include "Barracks.h"
-#include "WarFactory.h"
-#include "CommandPost.h"
-#include "Airfield.h"
-#include "Armory.h"
-#include "TechCenter.h"
-#include "CommandLink.h"
-
-#include "Unit.h"
-#include "Rifleman.h"
-#include "MissileSquad.h"
-#include "Engineer.h"
-#include "Grenadier.h"
-#include "SniperTeam.h"
-#include "ZoneTrooper.h"
-
-#include "Apc.h"
-#include "Pitbull.h"
-#include "Predator.h"
-#include "Harvester.h"
-#include "Mcv.h"
-#include "Rig.h"
-#include "Juggernaut.h"
-#include "MammothTank.h"
-
-#include "Orca.h"
-#include "Firehawk.h"
-#include "HammerHead.h"
-
 using namespace std;
 
-// GDI buildings
-const int GDI_SIZE = 9;
-const string GDI[GDI_SIZE] = { "Power Plant", "Refinery", "Barracks", "War Factory", "Command Post", "Airfield" , "Armory", "Tech Center", "Space Command Uplink" };
+const string factions[] = { "GDI","NOD","Scrin" };
 
-// Unit Types
-const string unitTypes[] = { "Infantry","Vehicle","Air" };
+void getFileInfo(vector <string>& target, istream& file)
+{
+	string line;
 
-// GDI Infantry Units
-const string GDI_INFANTRY[] = { "Rifleman Squad", "Missile Squad", "Engineer", "Grenadier Squad", "Sniper Team", "Zone Trooper" };
-// GDI Vehicle Units
-const string GDI_VEHICLE[] = { "CC-6 Pitbull", "Guardian APC","MBT-6 Predator", "Harvester", "Mobile Construction Vehicle", "Rig", "Juggernaut MK. III", "Mammoth MK. III" };
-// GDI Air Units
-const string GDI_AIR[] = { "A-15 Orca", "Firehawk" , "Hammerhead"};
+	while (getline(file,line))
+	{
+		target.push_back(line);
+	}
+}
+
 
 int main()
 {
-	Player player;
 	int choice,select = 0;
 	string line;
 	line.assign(50, '-');
+	vector <string> buildings;
+	vector <string> infantry;
+	vector <string> vehicle;
+	vector <string> air;
+
 	cout << "Welcome back commander" << endl;
-	cout << "This is Command and Conquer, you will be playing as the GDI faction" << endl;
-	player.setResources(20000);
-	cout << endl << "Entering Sandbox Mode" << endl;
+	Player player;
+
+	// File selection depending on the faction they choose
+	if (player.getFaction() == factions[0])
+	{
+		ifstream gdiBuildings("GDI_BUILDINGS.txt");
+		ifstream gdiInfantry("GDI_INFANTRY.txt");
+		ifstream gdiVehicle("GDI_VEHICLE.txt");
+		ifstream gdiAir("GDI_AIR.txt");
+
+		// Passing the file data
+		getFileInfo(buildings, gdiBuildings);
+		getFileInfo(infantry, gdiInfantry);
+		getFileInfo(vehicle, gdiVehicle);
+		getFileInfo(air, gdiAir);
+	}
+	else if (player.getFaction() == factions[1])
+	{
+		ifstream nodBuildings("NOD_BUILDINGS.txt");
+		ifstream nodInfantry("NOD_INFANTRY.txt");
+		ifstream nodVehicle("NOD_VEHICLE.txt");
+		ifstream nodAir("NOD_AIR.txt");
+
+		getFileInfo(buildings, nodBuildings);
+		getFileInfo(infantry, nodInfantry);
+		getFileInfo(vehicle, nodVehicle);
+		getFileInfo(air, nodAir);
+	}
+	else
+	{
+		ifstream scrinBuildings("SCRIN_BUILDINGS.txt");
+		ifstream scrinInfantry("SCRIN_INFANTRY.txt");
+		ifstream scrinVehicle("SCRIN_VEHICLE.txt");
+		ifstream scrinAir("SCRIN_AIR.txt");
+
+		getFileInfo(buildings, scrinBuildings);
+		getFileInfo(infantry, scrinInfantry);
+		getFileInfo(vehicle, scrinVehicle);
+		getFileInfo(air, scrinAir);
+	}
+
+	cout << endl << "This is Command and Conquer, you will be playing as the " << player.getFaction() << " faction" << endl;
+	cout << "Entering Sandbox Mode" << endl;
 	cout << line << endl;
-	
 
 	do
 	{
-		Building* list[] = { new PowerPlant, new Refinery, new Barracks, new WarFactory, new CommandPost, new AirField, new Armory, new TechCenter, new CommandLink };
-		Unit* infantry[] = { new Rifleman, new MissileSquad, new Engineer, new Grenadier, new SniperTeam, new ZoneTrooper };
-		Unit* vehicle[] = { new Apc, new Pitbull, new Predator, new Harvester, new Mcv, new Rig, new Juggernaut, new MammothTank };
-		Unit* air[] = { new Orca, new Firehawk , new HammerHead};
 		// Player command menu
 		cout << endl << endl << "Action Menu (Please select an action by entering corresponding number)" << endl;
 		cout << line << endl;
@@ -117,47 +122,20 @@ int main()
 			}
 			case 2: // Build Building
 			{
-				cout << endl << line << endl << "\tWhich structure do you want to build?" << endl;
-				for (int x = 0; x < GDI_SIZE; x++)
-				{
-					cout << "\t" << x << ". " << GDI[x] << endl;
-				}
-				cout << "\t-1. Go Back" << endl;
-				cin >> select;
-
-				if (select != -1)
-				{
-					player.buildBuilding(list[select]);
-					player.checkPower();
-				}
+				player.buildBuilding(select, buildings);
+				player.checkPower();
 				break;
 			}
 			case 3: // Sell Building
 			{
-				cout << endl << line << endl << "\tWhich structure do you want to sell?" << endl;
-				player.printBuildingList();
-				cout << "\t-1. Go Back" << endl;
-				cin >> select;
-
-				if (select != -1)
-				{
-					player.sellBuilding(select);
-					player.checkPower();
-				}
+				player.sellBuilding(select);
+				player.checkPower();
 				break;
 			}
 			case 4: // Power Manage
 			{
-				cout << endl << line << endl << "\tWhich structure do you want to power manage?" << endl;
-				player.printBuildingList();
-				cout << "\t-1. Go Back" << endl;
-				cin >> select;
-
-				if (select != -1)
-				{
-					player.managePower(select);
-					player.checkPower();
-				}
+				player.managePower(select);
+				player.checkPower();
 				break;
 			}
 			case 5: // Repair Buildings
@@ -201,79 +179,7 @@ int main()
 			}
 			case 6: // Buy Units
 			{
-				UnitSelection:
-					cout << endl << line << endl << "\tWhich unit type do you want to buy?" << endl;
-					for (int x = 0; x < 3; x++)
-					{
-						cout << "\t" << x + 1 << " " << unitTypes[x] << endl;
-					}
-					cout << "\t-1. Go Back" << endl;
-					cin >> select;
-					int unitChoice;
-
-				switch (select)
-				{
-					case 1:
-					{
-						cout << endl << line << endl << "\tWhich infantry unit do you want to buy?" << endl;
-						for (int x = 0; x < 6; x++)
-						{
-							cout << "\t" << x << ". " << GDI_INFANTRY[x] << endl;
-						}
-						cout << "\t-1. Go Back" << endl;
-						cin >> unitChoice;
-
-						if (unitChoice == -1)
-						{
-							goto UnitSelection;
-						}
-						else
-						{
-							player.buildUnit(infantry[unitChoice]);
-						}
-						break;
-					}
-					case 2:
-					{
-						cout << endl << line << endl << "\tWhich vehicle unit do you want to buy?" << endl;
-						for (int x = 0; x < 8; x++)
-						{
-							cout << "\t" << x << ". " << GDI_VEHICLE[x] << endl;
-						}
-						cout << "\t-1. Go Back" << endl;
-						cin >> unitChoice;
-
-						if (unitChoice == -1)
-						{
-							goto UnitSelection;
-						}
-						else
-						{
-							player.buildUnit(vehicle[unitChoice]);
-						}
-						break;;
-					}
-					case 3:
-					{
-						cout << endl << line << endl << "\tWhich air unit do you want to buy?" << endl;
-						for (int x = 0; x < 3; x++)
-						{
-							cout << "\t" << x << ". " << GDI_AIR[x] << endl;
-						}
-						cout << "\t-1. Go Back" << endl;
-						cin >> unitChoice;
-
-						if (unitChoice == -1)
-						{
-							goto UnitSelection;
-						}
-						else
-						{
-							player.buildUnit(air[unitChoice]);
-						}
-						break;
-					}
-				}
+				player.buildUnit(select, infantry, vehicle, air);
 				break;
 			}
 			case 7: // Destroy Units
