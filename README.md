@@ -11,7 +11,7 @@ Training Units  (Infantry, Vehicles, Air)
 Upgrading Units  
 Managing power for the entire base. Also has the ability to power manage (turning certain buildings offline, to decrease power consumption)      
 Managing resources    
-Following the constrainst founds in the game: This includes some units require a certain building before they can be trained. To buy upgrades you must have the required structure and your power must be online. Airfields are limited to holding only 4 aircrafts if the unit requires docking.  
+Following the constraints founds in the game: This includes some units require a certain building before they can be trained. To buy upgrades you must have the required structure and your power must be online. Airfields are limited to holding only 4 aircrafts if the unit requires docking.  
 Able to sell structures impacting both resource and power stats  
 Temporary harvesting mechanic based on number of harvesters and refineries   
   
